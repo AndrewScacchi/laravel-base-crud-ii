@@ -1,6 +1,8 @@
 @extends('template.base')
 
-@section('pageTitle', '{{ $comic->title }}')
+{{-- @section('pageTitle', '{{$comic->title}}') --}}
+{{-- Why the above is not working properly --}}
+@section('pageTitle', $comic['title'])
 
 @section('pageMain')
     <main>

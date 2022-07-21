@@ -8,6 +8,7 @@
     <form action="{{route('comics.store')}}" method="post">
         @csrf
         <div>
+            {{-- INPUT "NAME" must be equal to TABLE ROW for laravel to automate --}}
             <label for="title">Title</label>
             <input type="text" name="title" id="title">
         </div>

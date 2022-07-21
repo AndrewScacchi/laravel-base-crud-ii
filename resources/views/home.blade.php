@@ -16,6 +16,7 @@
             <th>Type</th>
             <th>Price</th>
             <th>Sales Date</th>
+            <th></th>
         </tr>
         @for($i=0; $i<count($comics); $i++)
             <tr>
@@ -26,13 +27,15 @@
                 <td>{{ $comics[$i]->price }}</td>
                 <td>{{ $comics[$i]->sale_date }}</td>
                 <td class="td-btn">
-                    <button>
-                        <a href="/comics/{{$comics[$i]->id}}">
+                        <a class="btn btn-green" href="{{ route('comics.show', ['comic'=>$comics[$i]->id])}}">
                             SHOW
                         </a>
-                    </button>
-                    <button>EDIT</button>
-                    <button>DEL</button>
+                        <a class="btn btn-alert" href="{{ route('comics.edit', ['comic'=>$comics[$i]->id])}}">
+                            EDIT
+                        </a>
+                        <a class="btn btn-danger" href="">
+                            DEL
+                        </a>
                 </td>
             </tr>
 

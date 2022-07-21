@@ -65,7 +65,7 @@ main{
 
     th,td {
         border: 1px solid black;
-        width: 150px;
+        min-width: 50px;
         // height: 75px;
         padding: 0.25rem 0.5rem;
     }
@@ -76,24 +76,41 @@ main{
         background-color: blanchedalmond;
     }
     .td-btn {
-        width: 150px;
+        width: 180px;
         padding: 0;
         text-align: center;
+
     }
 }
 
 //Button
 .btn {
-    padding: 1rem;
+    margin: 0.2rem;
+    padding: 0.2rem;
     color: black;
     background-color: white;
     border: 1px solid black;
     text-align: center;
-    font-weight: bold;
+
+    &-green{
+        background-color: green;
+        color: white;
+    }
+    &-alert{
+        background-color: orange;
+        color: white;
+    }
+    &-danger{
+        background-color: red;
+        color: white;
+    }
+
+
     &:hover{
         cursor: pointer;
         background-color: orange;
         color: white;
     }
+
 }
 

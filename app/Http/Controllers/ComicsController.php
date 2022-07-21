@@ -36,7 +36,9 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
+        //$request->all() ci permette di prendere solo i dati del FORM
         $formData = $request->all();
+        //dd($request) --> see how many data are here!
         $newcomic = new Comic();
         $newcomic->title = $formData['title'];
         $newcomic->description = $formData['description'];
@@ -47,7 +49,10 @@ class ComicsController extends Controller
         $newcomic->type = $formData['type'];
         $newcomic->save();
 
-        return redirect()->route('home');
+        // Why not simple return view? because in return(view) you are STILL INTO this methods, if page refresh, resend module, INCORRECT BEHAVIOUR
+        //return redirect()->route('home');
+
+        return redirect()->route('comics.show', ['comic' => $newcomic]);
     }
 
     /**
@@ -72,9 +77,13 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
         //
+        // $comic = Comic::find($id);
+        // if(!$comic) abort(404);
+        //you can avoid the above two by using dependency injection on argument edit(Comic $comic) laravel automate the dep inj
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -84,9 +93,12 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $formData = $request->all();
+        //dd($request) --> see how many data are here!
+        $comic->update($formData);
+        return redirect()->route('comics.show' , ['comic'=> $comic]);
     }
 
     /**
