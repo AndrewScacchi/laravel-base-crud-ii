@@ -67,6 +67,7 @@ main h1 {
 .table td {
   border: 1px solid black;
   min-width: 50px;
+  min-height: 50px;
   padding: 0.25rem 0.5rem;
 }
 
@@ -82,9 +83,14 @@ main h1 {
   width: 180px;
   padding: 0;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {
+  font-size: 1rem;
+  min-height: 1.5rem;
   margin: 0.2rem;
   padding: 0.2rem;
   color: black;
@@ -98,9 +104,21 @@ main h1 {
   color: white;
 }
 
+.btn-green:hover {
+  cursor: pointer;
+  background-color: white;
+  color: green;
+}
+
 .btn-alert {
   background-color: orange;
   color: white;
+}
+
+.btn-alert:hover {
+  cursor: pointer;
+  background-color: white;
+  color: orange;
 }
 
 .btn-danger {
@@ -108,7 +126,13 @@ main h1 {
   color: white;
 }
 
-.btn:hover {
+.btn-danger:hover {
+  cursor: pointer;
+  background-color: white;
+  color: red;
+}
+
+.btn-main:hover {
   cursor: pointer;
   background-color: orange;
   color: white;

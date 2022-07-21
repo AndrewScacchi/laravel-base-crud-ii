@@ -4,9 +4,9 @@
 
 @section('pageMain')
 <main>
-    <h1>Laravel Base Crud</h1>
+    <h1>Laravel Base Crud PART II</h1>
 
-    <a href="{{route('comics.create')}}" class="btn">Create a new Entry</a>
+    <a href="{{route('comics.create')}}" class="btn btn-main">CREATE A NEW ENTRY</a>
 
     <table class="table">
         <tr>
@@ -27,15 +27,14 @@
                 <td>{{ $comics[$i]->price }}</td>
                 <td>{{ $comics[$i]->sale_date }}</td>
                 <td class="td-btn">
-                        <a class="btn btn-green" href="{{ route('comics.show', ['comic'=>$comics[$i]->id])}}">
-                            SHOW
-                        </a>
-                        <a class="btn btn-alert" href="{{ route('comics.edit', ['comic'=>$comics[$i]->id])}}">
-                            EDIT
-                        </a>
-                        <a class="btn btn-danger" href="">
-                            DEL
-                        </a>
+                        <a class="btn btn-green" href="{{ route('comics.show', ['comic'=>$comics[$i]->id])}}">SHOW</a>
+                        <a class="btn btn-alert" href="{{ route('comics.edit', ['comic'=>$comics[$i]->id])}}">EDIT</a>
+                        <form action="{{route('comics.destroy', ['comic'=>$comics[$i]->id])}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">DEL</button>
+                        </form>
+                        {{-- <a class="btn btn-danger" href="">DEL</a> --}}
                 </td>
             </tr>
 
