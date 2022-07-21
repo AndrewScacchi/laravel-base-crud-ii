@@ -47,7 +47,7 @@ class ComicsController extends Controller
         $newcomic->type = $formData['type'];
         $newcomic->save();
 
-        return view('list');
+        return redirect()->route('home');
     }
 
     /**
